@@ -1,19 +1,20 @@
 import express from 'express';
 import cors from 'cors';
 import listEndpoints from 'express-list-endpoints';
+import productsRouter from "./services/products/products.js"
 
 const server = express();
 
 
-// const publicFolderPath = join(process.cwd(), "./public")
+//const publicFolderPath = join(process.cwd(), "./public")
 
-// server.use(express.static())
+//server.use(express.static())
 server.use(express.json())
 server.use(cors())
 
 
 
-// server.use("/products" , productsRouter)
+server.use("/products" , productsRouter)
 // server.use("/reviews" , reviewsRouter)
 
 
