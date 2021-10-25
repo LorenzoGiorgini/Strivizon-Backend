@@ -1,4 +1,3 @@
-<<<<<<< Updated upstream
 import fs from 'fs-extra';
 import { fileURLToPath } from 'url';
 import { dirname, join } from 'path';
@@ -6,7 +5,9 @@ import express from 'express';
 import uniqid from 'uniqid';
 import multer from 'multer';
 import { extname } from 'path';
-import { validationResult } from 'express-validator';
+// import { validationResult } from 'express-validator';
+
+import {productChecker, valueProductChecker} from './validation.js'
 import createHttpError from 'http-errors';
 
 const { readJSON, writeJSON, writeFile } = fs;
@@ -95,24 +96,6 @@ productsRouter.post('/:productId/uploadImage', multer().single("imageUrl") , asy
         const productImage = (fileName , buffer) => {
             writeFile(join(productImageFolder , fileName) , buffer)
         }
-=======
-import fs from "fs-extra"
-import { fileURLToPath } from "url"
-import { dirname, join } from "path"
-import express from "express";
-import uniqid from "uniqid";
-import multer from "multer";
-import { extname } from "path";
-import createHttpError from "http-errors";
-
-import {productChecker, valueProductChecker} from './validation.js'
-
-
-// import expressValidator from "express-validator"
-// const {validationResult} = expressValidator
-
-const dataFolder = join(dirname(fileURLToPath(import.meta.url)), "../../data/products.json")
->>>>>>> Stashed changes
 
         await productImage(req.params.productId + extension , req.file.buffer)
         
