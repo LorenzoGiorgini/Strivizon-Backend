@@ -21,17 +21,24 @@ export const valueChecker=(req, res, next) => {
     res.status(500).send('too many values in the objects')
 
     }else{
-        if(Object.keys(req.body)===values){
 
-            next()
+        
+
+        for(let i =0; i<values.length; i++){
+            
+            if(Object.keys(req.body)[i]!==values[i]){
+
+                res.status(500).send('Wrong key values')
+    
+            }
 
         }
+        next()
+        
 
-        else{
-            res.status(500).send('Wrong key values')
-
-        }
     }
+
+    
 
 }
 

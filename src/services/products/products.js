@@ -8,6 +8,8 @@ import { extname } from 'path';
 // import { validationResult } from 'express-validator';
 
 import {productChecker, valueProductChecker} from './validation.js'
+
+
 import createHttpError from 'http-errors';
 
 const { readJSON, writeJSON, writeFile } = fs;
@@ -52,7 +54,7 @@ productsRouter.delete('/:_id', async (req, res, next) => {
 	}
 });
 
-productsRouter.post('/', async (req, res, next) => {
+productsRouter.post('/', productChecker, valueProductChecker , async (req, res, next) => {
 	try {
 		const createdProduct = {
 			_id: uniqid(),
