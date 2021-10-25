@@ -80,7 +80,13 @@ reviewsRouter.put("/:id", async (req, res) =>{
 
 
 reviewsRouter.get("/:id", (req, res) =>{
-    console.log(reviewsJSON)
+    const reviews = JSON.parse(fs.readFileSync(reviewsJSON))
+
+
+    const review = reviews.find(s => s.id === req.params.id)
+    
+  
+    res.send(review)
 })
 
 reviewsRouter.delete("/:id",async (req, res) =>{
