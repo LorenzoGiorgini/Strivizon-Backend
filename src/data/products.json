@@ -70,7 +70,7 @@
     "name": "samsung",
     "description": "changed him",
     "brand": "Mr.",
-    "imageUrl": "https://drop.ndtv.com/TECH/product_database/images/2152017124957PM_635_nokia_3310.jpeg?downsize=*:420&output-quality=80",
+    "imageUrl": "http://localhost:3001/img/products/e92qxa9u4kv6fbq90.png",
     "price": 200,
     "category": "television",
     "createdAt": "2021-10-25T08:54:32.867Z",
