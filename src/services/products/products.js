@@ -32,7 +32,7 @@ const allProducts = () => readJSON(dataFolder);
 const writeProducts = (product) => writeJSON(dataFolder, product);
 productsRouter.get('/', async (req, res, next) => {
 	try {
-		if(req.query){
+		if(req.query.category){
 			const products = await allProducts()
 		console.log(req.query, 'sdsads')
 
@@ -40,7 +40,7 @@ productsRouter.get('/', async (req, res, next) => {
 		res.status(200).send(productsFiltered)
 		}else{
 			const products = await allProducts();
-		res.send(products);
+			res.send(products);
 		}
 
 	} catch (error) {
