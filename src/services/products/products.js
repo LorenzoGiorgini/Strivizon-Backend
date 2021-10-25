@@ -32,8 +32,17 @@ const allProducts = () => readJSON(dataFolder);
 const writeProducts = (product) => writeJSON(dataFolder, product);
 productsRouter.get('/', async (req, res, next) => {
 	try {
-		const products = await allProducts();
+		if(req.query){
+			const products = await allProducts()
+		console.log(req.query, 'sdsads')
+
+		const productsFiltered = products.filter((products) => products.category === req.query.category);
+		res.status(200).send(productsFiltered)
+		}else{
+			const products = await allProducts();
 		res.send(products);
+		}
+
 	} catch (error) {
 		next(error);
 	}
@@ -44,10 +53,14 @@ productsRouter.get('/:_id', async (req, res, next) => {
 		const products = await allProducts();
 		const singleProduct = products.filter((pro) => pro._id === req.params._id);
 		res.send(singleProduct);
+
+		
 	} catch (error) {
 		next(error);
 	}
 });
+
+
 
 productsRouter.get('/:_id/reviews', async (req,res, next)=>{
 	try{
@@ -59,6 +72,8 @@ productsRouter.get('/:_id/reviews', async (req,res, next)=>{
 		const filteredData = reviews.filter((product)=> product.productId === req.params._id )
 
 		res.status(200).send(filteredData)
+
+		
 
 
 	}catch(error){

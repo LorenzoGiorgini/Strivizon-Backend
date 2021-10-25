@@ -22,7 +22,11 @@ export const valueChecker=(req, res, next) => {
 
     }else{
 
-        
+        if(Object.keys(req.body)['rate']>5){
+
+            res.status(500).send('rate must be lower than 4')
+
+        }
 
         for(let i =0; i<values.length; i++){
             
