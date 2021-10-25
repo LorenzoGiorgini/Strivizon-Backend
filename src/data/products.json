@@ -1,1 +1,79 @@
-[{"_id":"e92qxa8p0kv6evity","name":"3310","description":"somthing longer","brand":"nokia","imageUrl":"https://drop.ndtv.com/TECH/product_database/images/2152017124957PM_635_nokia_3310.jpeg?downsize=*:420&output-quality=80","price":100,"category":"smartphones","createdAt":"2021-10-25T08:41:56.757Z","updatedAt":"2021-10-25T08:41:56.757Z"},{"_id":"e92qxa9tskv6excu3","name":"flat screen","description":"somthing longer","brand":"samsung","imageUrl":"https://drop.ndtv.com/TECH/product_database/images/2152017124957PM_635_nokia_3310.jpeg?downsize=*:420&output-quality=80","price":250,"category":"television","createdAt":"2021-10-25T08:43:22.298Z","updatedAt":"2021-10-25T08:43:22.298Z"},{"_id":"e92qxa9tskv6eyiqc","name":"Ergonomic Concrete Chips","description":"somthing longer","brand":"Mr.","imageUrl":"https://drop.ndtv.com/TECH/product_database/images/2152017124957PM_635_nokia_3310.jpeg?downsize=*:420&output-quality=80","price":200,"category":"television","createdAt":"2021-10-25T08:44:16.596Z","updatedAt":"2021-10-25T08:44:16.596Z"},{"_id":"e92qxa9tskv6eyj3q","name":"Awesome Metal Salad","description":"somthing longer","brand":"Mr.","imageUrl":"https://drop.ndtv.com/TECH/product_database/images/2152017124957PM_635_nokia_3310.jpeg?downsize=*:420&output-quality=80","price":200,"category":"television","createdAt":"2021-10-25T08:44:17.078Z","updatedAt":"2021-10-25T08:44:17.078Z"},{"_id":"e92qxa9tskv6eyjfr","name":"Sleek Rubber Cheese","description":"somthing longer","brand":"Mr.","imageUrl":"https://drop.ndtv.com/TECH/product_database/images/2152017124957PM_635_nokia_3310.jpeg?downsize=*:420&output-quality=80","price":200,"category":"television","createdAt":"2021-10-25T08:44:17.511Z","updatedAt":"2021-10-25T08:44:17.511Z"}]
+[
+  {
+    "_id": "e92qxa8p0kv6evity",
+    "name": "3310",
+    "description": "somthing longer",
+    "brand": "nokia",
+    "imageUrl": "https://drop.ndtv.com/TECH/product_database/images/2152017124957PM_635_nokia_3310.jpeg?downsize=*:420&output-quality=80",
+    "price": 100,
+    "category": "smartphones",
+    "createdAt": "2021-10-25T08:41:56.757Z",
+    "updatedAt": "2021-10-25T08:41:56.757Z"
+  },
+  {
+    "_id": "e92qxa9tskv6excu3",
+    "name": "flat screen",
+    "description": "somthing longer",
+    "brand": "samsung",
+    "imageUrl": "https://drop.ndtv.com/TECH/product_database/images/2152017124957PM_635_nokia_3310.jpeg?downsize=*:420&output-quality=80",
+    "price": 250,
+    "category": "television",
+    "createdAt": "2021-10-25T08:43:22.298Z",
+    "updatedAt": "2021-10-25T08:43:22.298Z"
+  },
+  {
+    "_id": "e92qxa9tskv6eyiqc",
+    "name": "Ergonomic Concrete Chips",
+    "description": "somthing longer",
+    "brand": "Mr.",
+    "imageUrl": "https://drop.ndtv.com/TECH/product_database/images/2152017124957PM_635_nokia_3310.jpeg?downsize=*:420&output-quality=80",
+    "price": 200,
+    "category": "television",
+    "createdAt": "2021-10-25T08:44:16.596Z",
+    "updatedAt": "2021-10-25T08:44:16.596Z"
+  },
+  {
+    "_id": "e92qxa9tskv6eyj3q",
+    "name": "Awesome Metal Salad",
+    "description": "somthing longer",
+    "brand": "Mr.",
+    "imageUrl": "https://drop.ndtv.com/TECH/product_database/images/2152017124957PM_635_nokia_3310.jpeg?downsize=*:420&output-quality=80",
+    "price": 200,
+    "category": "television",
+    "createdAt": "2021-10-25T08:44:17.078Z",
+    "updatedAt": "2021-10-25T08:44:17.078Z"
+  },
+  {
+    "_id": "e92qxa9tskv6eyjfr",
+    "name": "Sleek Rubber Cheese",
+    "description": "somthing longer",
+    "brand": "Mr.",
+    "imageUrl": "https://drop.ndtv.com/TECH/product_database/images/2152017124957PM_635_nokia_3310.jpeg?downsize=*:420&output-quality=80",
+    "price": 200,
+    "category": "television",
+    "createdAt": "2021-10-25T08:44:17.511Z",
+    "updatedAt": "2021-10-25T08:44:17.511Z"
+  },
+  {
+    "_id": "e92qxa4ickv6fajkg",
+    "name": "Handcrafted Frozen Bike",
+    "description": "somthing longer",
+    "brand": "Mrs.",
+    "imageUrl": "https://drop.ndtv.com/TECH/product_database/images/2152017124957PM_635_nokia_3310.jpeg?downsize=*:420&output-quality=80",
+    "price": 200,
+    "category": "television",
+    "createdAt": "2021-10-25T08:53:37.551Z",
+    "updatedAt": "2021-10-25T08:53:37.551Z"
+  },
+  {
+    "_id": "e92qxa9u4kv6fbq90",
+    "name": "samsung",
+    "description": "changed him",
+    "brand": "Mr.",
+    "imageUrl": "https://drop.ndtv.com/TECH/product_database/images/2152017124957PM_635_nokia_3310.jpeg?downsize=*:420&output-quality=80",
+    "price": 200,
+    "category": "television",
+    "createdAt": "2021-10-25T08:54:32.867Z",
+    "updatedAt": "2021-10-25T09:00:03.685Z"
+  }
+]

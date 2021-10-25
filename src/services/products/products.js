@@ -56,7 +56,7 @@ productsRouter.post('/', async (req, res, next) => {
 			updatedAt: new Date(),
 		};
 
-		const products = await fs.readJSON(dataFolder);
+		const products = await allProducts();
 
 		products.push(createdProduct);
 
@@ -70,6 +70,23 @@ productsRouter.post('/', async (req, res, next) => {
 
 productsRouter.put('/:productId', async (req, res, next) => {
 	try {
+
+        const products = await allProducts();
+
+        const productIndex = products.findIndex(product => product._id === req.params.productId)
+
+        const updatedProduct = {
+            ...products[productIndex],
+            ...req.body,
+            updatedAt: new Date()
+        }
+
+        products[productIndex] = updatedProduct;
+
+        await fs.writeJSON(dataFolder, products)
+
+        res.status(200).send(updatedProduct)
+
 	} catch (error) {
 		next(error);
 	}
