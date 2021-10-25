@@ -18,7 +18,7 @@ const dataFolder = join(
 );
 
 const allProducts = () => readJSON(dataFolder);
-
+const writeProducts = (product) => writeJSON(dataFolder, product);
 productsRouter.get('/', async (req, res, next) => {
 	try {
 		const products = await allProducts();
@@ -27,21 +27,24 @@ productsRouter.get('/', async (req, res, next) => {
 		next(error);
 	}
 });
-productsRouter.get('/:id', async (req, res, next) => {
+
+productsRouter.get('/:_id', async (req, res, next) => {
 	try {
 		const products = await allProducts();
-		const singleProduct = products.filter((pro) => pro.id === req.params.id);
+		const singleProduct = products.filter((pro) => pro._id === req.params._id);
 		res.send(singleProduct);
 	} catch (error) {
 		next(error);
 	}
 });
 
-productsRouter.delete('/:id', async (req, res, next) => {
+productsRouter.delete('/:_id', async (req, res, next) => {
 	try {
 		const products = await allProducts();
-		const deletedProduct = products.filter((pro) => pro.id !== req.params.id);
-		res.send(deletedProduct);
+		const deletedProduct = products.filter((pro) => pro._id !== req.params._id);
+		console.log('lol');
+		await writeProducts(deletedProduct);
+		res.status(204).send();
 	} catch (error) {
 		next(error);
 	}
