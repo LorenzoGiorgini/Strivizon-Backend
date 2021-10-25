@@ -12,7 +12,7 @@ const server = express();
 server.use(express.json());
 server.use(cors());
 
-server.use("/products" , productsRouter)
+server.use('/products', productsRouter);
 server.use('/reviews', reviewsRouter);
 
 const port = 3001;

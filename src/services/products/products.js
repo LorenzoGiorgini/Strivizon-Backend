@@ -12,10 +12,12 @@ const { readJSON, writeJSON, writeFile } = fs;
 
 const productsRouter = express.Router();
 
-// const dataFolder = join(dirname(fileURLToPath(import.meta.url)), '../../data/products.json');
+const dataFolder = join(
+	dirname(fileURLToPath(import.meta.url)),
+	'../../data/products.json',
+);
 
 const allProducts = () => readJSON(dataFolder);
-
 
 productsRouter.get('/', async (req, res, next) => {
 	try {
@@ -45,8 +47,32 @@ productsRouter.delete('/:id', async (req, res, next) => {
 	}
 });
 
-// productsRouter.post();
+productsRouter.post('/', async (req, res, next) => {
+	try {
+		const createdProduct = {
+			_id: uniqid(),
+			...req.body,
+			createdAt: new Date(),
+			updatedAt: new Date(),
+		};
 
-// productsRouter.put();
+		const products = await fs.readJSON(dataFolder);
+
+		products.push(createdProduct);
+
+		await fs.writeJSON(dataFolder, products);
+
+		res.status(201).send(createdProduct);
+	} catch (error) {
+		next(error);
+	}
+});
+
+productsRouter.put('/:productId', async (req, res, next) => {
+	try {
+	} catch (error) {
+		next(error);
+	}
+});
 
 export default productsRouter;
