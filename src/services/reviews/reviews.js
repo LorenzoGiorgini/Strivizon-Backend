@@ -46,21 +46,19 @@ reviewsRouter.post("/:id", (req, res) =>{
     }
 
 
-
-
-
-
-
-
-
-    
-
-
 })
+
+reviewsRouter.put("/:id", (req, res) =>{
+    console.log(reviewsJSON)
+})
+
 
 reviewsRouter.get("/", (req, res) =>{
     console.log(reviewsJSON)
 })
 
+reviewsRouter.delete("/:id", (req, res) =>{
+    console.log(reviewsJSON)
+})
 
 export default reviewsRouter
