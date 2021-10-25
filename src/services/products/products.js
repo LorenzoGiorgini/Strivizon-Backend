@@ -115,34 +115,34 @@ productsRouter.post('/', productChecker, valueProductChecker , async (req, res, 
 });
 
 
-productsRouter.post('/:productId/uploadImage', multer().single("imageUrl") , async (req, res, next) => {
+productsRouter.post('/:productId/uploadImage' , multer().single("imageUrl") , async (req, res, next) => {
 	try {
 
-        const extension = extname(req.file.originalname)
+		const extension = extname(req.file.originalname)
 
-        const productImageFolder = join(process.cwd(), "./public/img/products")
+		const productImageFolder = join(process.cwd(), "./public/img/products")
 
-        const imageLink = `http://localhost:3001/img/products/${req.params.productId}${extension}`;
+		const imageLink = `http://localhost:3001/img/products/${req.params.productId}${extension}`;
 
-        const products = await allProducts()
+		const products = await allProducts()
 
-        const changeImage = products.find( product => product._id === req.params.productId)
+		const changeImage = products.find( product => product._id === req.params.productId)
 
-        changeImage.imageUrl = imageLink
+		changeImage.imageUrl = imageLink
 
-        const productsFullArray = products.filter( product => product._id !== req.params.productId)
+		const productsFullArray = products.filter( product => product._id !== req.params.productId)
 
-        productsFullArray.push(changeImage)
+		productsFullArray.push(changeImage)
 
-        const productImage = (fileName , buffer) => {
-            writeFile(join(productImageFolder , fileName) , buffer)
-        }
+		const productImage = (fileName , buffer) => {
+			writeFile(join(productImageFolder , fileName) , buffer)
+		}
 
-        await productImage(req.params.productId + extension , req.file.buffer)
-        
-        await writeJSON(dataFolder ,productsFullArray)
+		await productImage(req.params.productId + extension , req.file.buffer)
+		
+		await writeJSON(dataFolder ,productsFullArray)
 
-        res.status(201).send("Image has been added succesfully")
+		res.status(201).send("Image has been added succesfully")
 
 	} catch (error) {
 		next(error);
@@ -150,7 +150,7 @@ productsRouter.post('/:productId/uploadImage', multer().single("imageUrl") , asy
 });
 
 
-productsRouter.put('/:productId', async (req, res, next) => {
+productsRouter.put('/:productId' , valueProductChecker , async (req, res, next) => {
 	try {
 
         const products = await allProducts();
