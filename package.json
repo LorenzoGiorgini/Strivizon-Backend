@@ -1,8 +1,9 @@
 {
-  "name": "Strivizon-Backend",
+  "name": "strivizon-nnpmbackend",
   "version": "1.0.0",
   "description": "",
-  "main": "index.js",
+  "main": "server.js",
+  "type": "module",
   "dependencies": {
     "cors": "^2.8.5",
     "express": "^4.17.1",
@@ -16,7 +17,9 @@
   },
   "devDependencies": {},
   "scripts": {
-    "test": "nodemon -e js .scr/server.js"
+    "test": "nodemon -e js .scr/server.js",
+    "dev": "nodemon -e js ./src/server.js"
+
   },
   "repository": {
     "type": "git",
