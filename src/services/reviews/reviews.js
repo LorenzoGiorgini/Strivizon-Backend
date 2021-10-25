@@ -79,12 +79,22 @@ reviewsRouter.put("/:id", async (req, res) =>{
 })
 
 
-reviewsRouter.get("/", (req, res) =>{
+reviewsRouter.get("/:id", (req, res) =>{
     console.log(reviewsJSON)
 })
 
-reviewsRouter.delete("/:id", (req, res) =>{
-    console.log(reviewsJSON)
+reviewsRouter.delete("/:id",async (req, res) =>{
+    try {
+		const reviews =  JSON.parse(fs.readFileSync(reviewsJSON))
+
+		const deletedReviews = reviews.filter((review) => review._id !== req.params.id);
+		
+		 
+        fs.writeFileSync(reviewsJSON, JSON.stringify(deletedReviews) );
+		res.status(200).send('deleted');
+	} catch (error) {
+		next(error);
+	}
 })
 
 
