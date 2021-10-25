@@ -10,9 +10,16 @@ import { extname } from 'path';
 import {productChecker, valueProductChecker} from './validation.js'
 
 
+
 import createHttpError from 'http-errors';
 
+const currentFilePath = fileURLToPath(import.meta.url)
+const parentFolderPath = dirname(currentFilePath)
+const reviewsJSON = join(parentFolderPath, "../../data/reviews.json")
+
 const { readJSON, writeJSON, writeFile } = fs;
+
+
 
 const productsRouter = express.Router();
 
@@ -20,7 +27,7 @@ const dataFolder = join(
 	dirname(fileURLToPath(import.meta.url)),
 	'../../data/products.json',
 );
-
+const allReviews = () => readJSON(reviewsJSON)
 const allProducts = () => readJSON(dataFolder);
 const writeProducts = (product) => writeJSON(dataFolder, product);
 productsRouter.get('/', async (req, res, next) => {
@@ -41,6 +48,23 @@ productsRouter.get('/:_id', async (req, res, next) => {
 		next(error);
 	}
 });
+
+productsRouter.get('/:_id/reviews', async (req,res, next)=>{
+	try{
+		const products = await allProducts();
+		const reviews = await allReviews()
+
+	
+
+		const filteredData = reviews.filter((product)=> product.productId === req.params._id )
+
+		res.status(200).send(filteredData)
+
+
+	}catch(error){
+		next(error);
+	}
+})
 
 productsRouter.delete('/:_id', async (req, res, next) => {
 	try {

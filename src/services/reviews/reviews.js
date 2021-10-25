@@ -15,6 +15,7 @@ const reviewsRouter = express.Router()
 
 const currentFilePath = fileURLToPath(import.meta.url)
 const parentFolderPath = dirname(currentFilePath)
+
 const reviewsJSON = join(parentFolderPath, "../../data/reviews.json")
 const productsJSON = join(parentFolderPath, "../../data/products.json")
 
@@ -85,5 +86,6 @@ reviewsRouter.get("/", (req, res) =>{
 reviewsRouter.delete("/:id", (req, res) =>{
     console.log(reviewsJSON)
 })
+
 
 export default reviewsRouter
