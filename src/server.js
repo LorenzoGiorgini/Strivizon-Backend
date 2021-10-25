@@ -2,6 +2,7 @@ import express from 'express';
 import cors from 'cors';
 import listEndpoints from 'express-list-endpoints';
 import productsRouter from "./services/products/products.js"
+import reviewsRouter from './services/reviews/reviews.js'
 
 const server = express();
 
@@ -15,7 +16,7 @@ server.use(cors())
 
 
 server.use("/products" , productsRouter)
-// server.use("/reviews" , reviewsRouter)
+server.use("/reviews" , reviewsRouter)
 
 
 
