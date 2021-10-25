@@ -53,6 +53,7 @@
     "category": "television",
     "createdAt": "2021-10-25T08:44:17.511Z",
     "updatedAt": "2021-10-25T08:44:17.511Z"
+<<<<<<< Updated upstream
   },
   {
     "_id": "e92qxa4ickv6fajkg",
@@ -75,5 +76,7 @@
     "category": "television",
     "createdAt": "2021-10-25T08:54:32.867Z",
     "updatedAt": "2021-10-25T09:00:03.685Z"
+=======
+>>>>>>> Stashed changes
   }
 ]
