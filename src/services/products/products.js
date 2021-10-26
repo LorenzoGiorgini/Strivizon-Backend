@@ -30,11 +30,11 @@ const dataFolder = join(
 const allReviews = () => readJSON(reviewsJSON)
 const allProducts = () => readJSON(dataFolder);
 const writeProducts = (product) => writeJSON(dataFolder, product);
+
 productsRouter.get('/', async (req, res, next) => {
 	try {
 		if(req.query.category){
 			const products = await allProducts()
-		console.log(req.query, 'sdsads')
 
 		const productsFiltered = products.filter((products) => products.category === req.query.category);
 		res.status(200).send(productsFiltered)
@@ -85,7 +85,7 @@ productsRouter.delete('/:_id', async (req, res, next) => {
 	try {
 		const products = await allProducts();
 		const deletedProduct = products.filter((pro) => pro._id !== req.params._id);
-		console.log('lol');
+		
 		await writeProducts(deletedProduct);
 		res.status(204).send();
 	} catch (error) {
