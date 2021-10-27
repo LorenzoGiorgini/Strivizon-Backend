@@ -5,11 +5,13 @@ import express from 'express';
 import uniqid from 'uniqid';
 import multer from 'multer';
 import { extname } from 'path';
+
+import { getPDFReadableStream } from "../pdf-tools.js"
 // import { validationResult } from 'express-validator';
 
 import {productChecker, valueProductChecker} from './validation.js'
 
-
+import { pipeline } from "stream"
 
 import createHttpError from 'http-errors';
 
@@ -174,6 +176,29 @@ productsRouter.put('/:productId' , valueProductChecker , async (req, res, next) 
 	}
 });
 
+productsRouter.get('/download/:id', async (req, res, next)=>{
+
+	res.setHeader("Content-Disposition", "attachment; filename=whatever.pdf")
+
+	const products = await allProducts();
+	const productIndex = products.findIndex(product => product._id === req.params.id)
+	
+	const product = products[productIndex]
+
+	const source = getPDFReadableStream({ 
+		name: product.name,
+		description: product.description,
+		price: product.price,
+		category: product.category,
+		img: product.imageUrl})
+		 // PDF READABLE STREAM
+    const destination = res
+
+    pipeline(source, destination, err => {
+      if (err) next(err)
+    })
+
+})
 
 
 export default productsRouter;
